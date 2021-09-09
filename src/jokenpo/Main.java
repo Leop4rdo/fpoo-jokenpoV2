@@ -37,25 +37,102 @@ public class Main {
 
 				System.out.println();
 			}
-				// o bloco de codigo abaixo é responsavel por repetir as partidas até que
-				// o contador seja > do que o numero total de partidas
-				int contador = 1;
-				while (contador <= melhorDe) {
-					System.out.println("---------------------------------");
-					System.out.println();
-					System.out.println("           Partida " + contador);
-					System.out.println();
+			
+			// o bloco de codigo abaixo é responsavel por repetir as partidas até que
+			// o contador seja > do que o numero total de partidas
+			int contador = 1;
+			while (contador <= melhorDe && !(placarPlayer > melhorDe/2 || placarCpu > melhorDe/2)) {
+				System.out.println("---------------------------------");
+				System.out.println();
+				System.out.println("           Partida " + contador);
+				System.out.println();
 
-					// o bloco de codigo abaixo recebe o movimento do jogador e ve se é um movimento
-					// valido
-					while (!(pMove <= 3 && pMove >= 1)) {
-						System.out.println("Qual seu proximo movimento? (1 a 3)");
-						pMove = sc.nextInt();
+				// o bloco de codigo abaixo recebe o movimento do jogador e ve se é um movimento
+				// valido
+				while (!(pMove <= 3 && pMove >= 1)) {
+					System.out.println("Qual seu proximo movimento? (1 a 3)");
+					pMove = sc.nextInt();
 
-						if (!(pMove <= 3 && pMove >= 1)) {
-							System.out.println("Resposta Invalida! \n");
-						}
+					if (!(pMove <= 3 && pMove >= 1)) {
+						System.out.println("Resposta Invalida! \n");
 					}
+				}
+
+				System.out.println();
+				System.out.println("---------------------------------");
+				System.out.println();
+
+				System.out.println("Jo...");
+				System.out.println("Ken......");
+				System.out.println("Po!!!!!!!!!!");
+
+				System.out.println();
+
+				cpuMove = randomizer.nextInt(3) + 1;
+
+				// o bloco de codigo abaixo define o resultado do jogo
+				if ((pMove == 1 && cpuMove == 3) || (pMove == 2 && cpuMove == 1) || (pMove == 3 && cpuMove == 2)) { 
+					System.out.println("Parabéns! você ganhou.");
+					placarPlayer++;
+				} else if (pMove == cpuMove) { // EMPATE
+					System.out.println("Eita! empatou.");
+				} else { // CPU VENCEU
+					System.out.println("Urgh! não foi dessa vez.");
+					placarCpu++;
+				}
+
+				switch (pMove) { // atribui nome ao movimento do jogador
+				case 1:
+					pMoveName = "Pedra";
+					break;
+				case 2:
+					pMoveName = "Papel";
+					break;
+				case 3:
+					pMoveName = "Tesoura";
+					break;
+
+				default:
+					pMoveName = "Invalido";
+					break;
+				}
+
+				switch (cpuMove) { // atribui nome ao movimento do computador
+				case 1:
+					cpuMoveName = "Pedra";
+					break;
+				case 2:
+					cpuMoveName = "Papel";
+					break;
+				case 3:
+					cpuMoveName = "Tesoura";
+					break;
+
+				default:
+					cpuMoveName = "Invalido";
+					break;
+				}
+
+				System.out.println();
+				System.out.println("Seu movimento: " + pMoveName);
+				System.out.println("Movimento do computador: " + cpuMoveName);
+				System.out.println();
+
+				contador++;
+				pMove = 0;
+				cpuMove = 0;
+			}
+
+			if (placarCpu == placarPlayer) {
+				System.out.println("-------- Partida de Ouro --------");
+				System.out.println();
+
+				System.out.println("O jogo empatou, vamos desempatar \ncom a Partida de Ouro");
+				System.out.println();
+
+				while (placarCpu == placarPlayer) {
+					System.out.println("Qual seu proximo movimento? (1 a 3)");
+					pMove = sc.nextInt();
 
 					System.out.println();
 					System.out.println("---------------------------------");
@@ -69,99 +146,23 @@ public class Main {
 
 					cpuMove = randomizer.nextInt(3) + 1;
 
-					// o bloco de codigo abaixo define o resultado do jogo
-					if ((pMove == 1 && cpuMove == 3) || (pMove == 2 && cpuMove == 1) || (pMove == 3 && cpuMove == 2)) { 
-						System.out.println("Parabéns! você ganhou.");
-						placarPlayer++;
-					} else if (pMove == cpuMove) { // EMPATE
-						System.out.println("Eita! empatou.");
-					} else { // CPU VENCEU
-						System.out.println("Urgh! não foi dessa vez.");
-						placarCpu++;
-					}
-
-					switch (pMove) { // atribui nome ao movimento do jogador
-					case 1:
-						pMoveName = "Pedra";
-						break;
-					case 2:
-						pMoveName = "Papel";
-						break;
-					case 3:
-						pMoveName = "Tesoura";
-						break;
-
-					default:
-						pMoveName = "Invalido";
-						break;
-					}
-
-					switch (cpuMove) { // atribui nome ao movimento do computador
-					case 1:
-						cpuMoveName = "Pedra";
-						break;
-					case 2:
-						cpuMoveName = "Papel";
-						break;
-					case 3:
-						cpuMoveName = "Tesoura";
-						break;
-
-					default:
-						cpuMoveName = "Invalido";
-						break;
-					}
-
-					System.out.println();
-					System.out.println("Seu movimento: " + pMoveName);
-					System.out.println("Movimento do computador: " + cpuMoveName);
-					System.out.println();
-
-					contador++;
-					pMove = 0;
-					cpuMove = 0;
-				}
-
-				if (placarCpu == placarPlayer) {
-					System.out.println("-------- Partida de Ouro --------");
-					System.out.println();
-
-					System.out.println("O jogo empatou, vamos desempatar \ncom a Partida de Ouro");
-					System.out.println();
-
-					while (placarCpu == placarPlayer) {
-						System.out.println("Qual seu proximo movimento? (1 a 3)");
-						pMove = sc.nextInt();
-
-						System.out.println();
-						System.out.println("---------------------------------");
-						System.out.println();
-
-						System.out.println("Jo...");
-						System.out.println("Ken......");
-						System.out.println("Po!!!!!!!!!!");
-
-						System.out.println();
-
-						cpuMove = randomizer.nextInt(3) + 1;
-
-						if (pMove >= 1 && pMove <= 3) { // valida se o movimento do jogador foi valido
-							if ((pMove == 1 && cpuMove == 3) || (pMove == 2 && cpuMove == 1)
-									|| (pMove == 3 && cpuMove == 2)) { // valida se o jogador ganhou
-								System.out.println("Parabéns! você ganhou.");
-								placarPlayer++;
-							} else if (pMove == cpuMove) { // valida caso o resultado tenha dado empate
-								System.out.println("Eita! empatou.");
-							} else {
-								System.out.println("Urgh! não foi dessa vez.");
-								placarCpu++;
-							}
+					if (pMove >= 1 && pMove <= 3) { // valida se o movimento do jogador foi valido
+						if ((pMove == 1 && cpuMove == 3) || (pMove == 2 && cpuMove == 1)
+								|| (pMove == 3 && cpuMove == 2)) { // valida se o jogador ganhou
+							System.out.println("Parabéns! você ganhou.");
+							placarPlayer++;
+						} else if (pMove == cpuMove) { // valida caso o resultado tenha dado empate
+							System.out.println("Eita! empatou.");
 						} else {
-							System.out.println("Ops! você realizou um movimento invalido.");
+							System.out.println("Urgh! não foi dessa vez.");
+							placarCpu++;
 						}
-						System.out.println();
+					} else {
+						System.out.println("Ops! você realizou um movimento invalido.");
 					}
+					System.out.println();
 				}
+			}
 
 			System.out.println();
 			System.out.println("------------- Placar ------------");
