@@ -1,6 +1,8 @@
-Reconstrua o jogo Jokenpo no estilo "melhor de três". O jogo deverá solicitar o número de partidas no desafio, este número deverá ser ímpar e maior ou igual a três.
+Reconstrua o jogo Jokenpo no estilo "melhor de três". O jogo deverá solicitar o número de partidas 
+no desafio, este número deverá ser ímpar e maior ou igual a três.
 
-O ganhador será aquele que vencer a maior quantidade de partidas de modo que não seja mais possível o rival superá-lo.
+O ganhador será aquele que vencer a maior quantidade de partidas de modo que não seja mais 
+possível o rival superá-lo.
 
 Caso haja empate o jogo deverá prosseguir até que ocorra o desempate, a partida de ouro.
 
