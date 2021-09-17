@@ -1,10 +1,8 @@
 package jokenpo;
-
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-
 	public static void main(String[] args) {
 		Random randomizer = new Random();
 		Scanner sc = new Scanner(System.in);
@@ -24,7 +22,6 @@ public class Main {
 			System.out.println("     - Tesoura = 3");
 			System.out.println("  - Espere o computador fazer seu movimento");
 			System.out.println("  - Comemore ou chore!");
-
 			System.out.println();
 
 			// o bloco de codigo abaixo le a resposta do usuario e verifica se ela é valida.
@@ -35,7 +32,6 @@ public class Main {
 				if (!(melhorDe >= 3 && (melhorDe % 2) == 1)) {
 					System.out.println("Resposta Invalida!");
 				}
-
 				System.out.println();
 			}
 			
@@ -204,8 +200,8 @@ public class Main {
 			pMove = 0;
 			cpuMove = 0;
 		}
-	
 		
+		sc.close();
 		System.out.println("Obrigado por jogar!");
 		System.out.println();
 		System.out.println("---------------------------------");
