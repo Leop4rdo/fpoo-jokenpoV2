@@ -15,6 +15,7 @@ public class Main {
 		System.out.println("------------ Jokenpo ------------");
 		System.out.println();
 		
+		// o bloco de codigo abaixo é responsavel por loopar o jogo inteiro
 		while (jogarNovamente.equalsIgnoreCase("s")) {
 			System.out.println("Como jogar?");
 			System.out.println("  - Escolha um numero de 1 a 3 onde:");
@@ -26,7 +27,7 @@ public class Main {
 
 			System.out.println();
 
-			// o bloco de codigo abaixo le a resposta do usuario e valida se ela é valida.
+			// o bloco de codigo abaixo le a resposta do usuario e verifica se ela é valida.
 			while (!(melhorDe >= 3 && (melhorDe % 2) == 1)) {
 				System.out.print("Vamos jogar melhor de: ");
 				melhorDe = sc.nextInt();
@@ -68,7 +69,7 @@ public class Main {
 
 				System.out.println();
 
-				cpuMove = randomizer.nextInt(3) + 1;
+				cpuMove = randomizer.nextInt(3) + 1; // sorteia o movimento do CPU
 
 				// o bloco de codigo abaixo define o resultado do jogo
 				if ((pMove == 1 && cpuMove == 3) || (pMove == 2 && cpuMove == 1) || (pMove == 3 && cpuMove == 2)) { 
@@ -131,7 +132,7 @@ public class Main {
 				System.out.println("O jogo empatou, vamos desempatar \ncom a Partida de Ouro");
 				System.out.println();
 
-				while (placarCpu == placarPlayer) {
+				while (placarCpu == placarPlayer) { // loop jogada de ouro
 					// o bloco de codigo abaixo recebe o movimento do jogador e ve se é um movimento
 					// valido
 					while (!(pMove <= 3 && pMove >= 1)) {
@@ -183,6 +184,7 @@ public class Main {
 			System.out.println("---------------------------------");
 			System.out.println();
 			
+			// o bloco de codigo abaixo verifica se a resposta do usuario foi valida
 			jogarNovamente = "";
 			while (!jogarNovamente.equalsIgnoreCase("s") && !jogarNovamente.equalsIgnoreCase("n")) {
 				System.out.println("Jogar novamente? (S/N)");
@@ -194,8 +196,6 @@ public class Main {
 				
 				System.out.println();
 			}
-			
-			
 			
 			melhorDe = 0;
 			placarCpu = 0;
